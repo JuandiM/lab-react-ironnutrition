@@ -11,7 +11,7 @@ function App() {
     const [ foodData, setFoodData ] = useState(foods);
     const [ searchInput, setSearchInput ] = useState('');
     const foodDataCopy = [ ...foodData ];
-    const [ showFoodData, setShowFoodData ] = useState(false);
+    const [ showForm, setShowForm ] = useState(false);
 
     //ADD FOOD
     const addNewFood = (newFood) => {
@@ -41,18 +41,18 @@ function App() {
     setFoodData(foodToDelete)
   };
   //TOGGLE FUNCTION
-  const toggleShowFood= () => {
-    setShowFoodData(!showFoodData);
+  const toggleForm= () => {
+    setShowForm(!showForm);
   };
 
     return (
       <div className="App">
-        <AddFoodForm food={foodData} addFood={addNewFood} />
-          <Button type="default" className="buttonHideShow" onClick={toggleShowFood}>
-            {showFoodData ? 'Hide form' : 'Add new food'}
+
+          <Button type="default" className="buttonHideShow" onClick={toggleForm}>
+            {showForm ? 'Hide form' : 'Add new food'}
           </Button>
 
-            {showFoodData ? ( <AddFoodForm food={foodData} 
+            {showForm ? ( <AddFoodForm food={foodData} 
             addFood={addNewFood} /> ) : null}
 
         <SearchFood searchInput={searchInput} searchFoodFilter={searchFoodFilter} />
